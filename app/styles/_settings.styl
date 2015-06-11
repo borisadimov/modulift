@@ -1,0 +1,45 @@
+white = #ffffff
+
+lgrey = #F7F6F4
+grey = #ededed
+dgrey = #dadada
+
+
+
+thin(size = 1rem, line = 1.4rem, space = 0.02rem)
+  font: 200 size/line 'Helvetica Neue', Helvetica Neue, Helvetica, Arial
+  -webkit-font-smoothing: antialiased
+  letter-spacing space
+
+regular(size = 1rem, line = 1.4rem, space = 0.02rem)
+  font: 400 size/line 'Helvetica Neue', Helvetica Neue, Helvetica, Arial
+  -webkit-font-smoothing: antialiased
+  letter-spacing space
+
+
+
+responds($size = '1000px')
+  @media only screen and (max-width: $size)
+    {block}
+
+big()
+  @media only screen and (min-width: 1200px)
+    {block}
+
+tablet()
+  +responds(780px)
+    {block}
+
+
+icon(code = ' ')
+  content: code
+  display: inline-block
+  font-family: "Ionicons"
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  text-rendering: auto
+  line-height: 1
+  -webkit-font-smoothing: antialiased

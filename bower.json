@@ -1,0 +1,33 @@
+{
+  "name": "your-app",
+  "version": "0.0.1",
+  "main": "public/app.js",
+  "dependencies": {
+    "react": "~0.13.2",
+    "react-router": "~0.13.3",
+    "moment": "~2.10.3",
+    "bluebird": "~2.9.0",
+    "switchery": "0.8.0",
+    "fetch": "~0.8.2",
+    "ionicons": "~2.0.1",
+    "lodash": "~3.7.0",
+    "exim": "0.6.2",
+    "d3": "3.5.5",
+    "react-select": "0.4.9",
+    "react-modal": "~0.2.0"
+  },
+  "overrides": {
+    "react-router": {
+      "dependencies": {
+        "react": "*"
+      }
+    },
+    "exim": {
+      "dependencies": {
+        "react": "*",
+        "react-router": "*",
+        "bluebird": "*"
+      }
+    }
+  }
+}
