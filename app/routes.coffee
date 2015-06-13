@@ -10,7 +10,9 @@ mount = (name) ->
 module.exports =
   Route name: 'app', handler: mount('app/App'), path: '/',
     Route name: 'index',    handler: mount('index')
-    Route name: 'test',     handler: mount('documents/InstructionsUK'), path: '/test'
+    Route name: 'docs',     handler: mount('documents/DocsList'), path: '/docs'
+    Route name: 'team',     handler: mount('network/Team'), path: '/team'
+    Route name: 'network',     handler: mount('network/Network'), path: '/network'
 
     Redirect from:'/', to: defaultRouteName
     # Route name: 'signup',    handler: mount('auth/Signup')

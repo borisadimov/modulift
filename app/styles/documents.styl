@@ -11,6 +11,30 @@
   &-header
     flex: 0 0 60px
     background: #044B8D
+    color: #fff
+    position: relative
+    text-align: center
+    &-text
+      padding-top: 20px
+      medium 1rem
+
+    &-goback
+      position: absolute
+      padding 0 40px 0 30px
+      setPosition middle
+      cursor pointer
+      text-align center
+      line-height 60px
+      vertical-align middle
+      &:hover
+        color: darken(white,20%)
+      &:after
+        icon "\f3cf"
+        font-size 1.6rem
+        line-height 60px
+
+
+
   &-wrapper
     flex: 1 1 auto
     display flex

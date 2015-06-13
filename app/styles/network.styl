@@ -1,0 +1,200 @@
+@import 'nib'
+@import '_settings'
+
+.network
+  min-width 100%
+  min-height 100%
+  background url(/images/network.jpg) center center no-repeat
+  background-size cover
+  flexy column nowrap
+  position relative
+  padding 1vmin
+  justify flex-start
+  // &.map
+  //   padding 1vmin
+
+
+
+  &-points
+    position absolute
+    bottom 2vmin
+    left 1vw
+    size 98% 25%
+    overflow hidden
+    padding-top 2vmin
+    &-wrapper
+      size 100% 120%
+      overflow-x scroll
+
+    &-scroller
+      height 84%
+      flexy row nowrap
+      justify flex-start stretch
+
+    &-point
+      color #fff
+      flex 0 0 25vw
+      margin-right 2vw
+      thin 0.8rem 1rem
+      padding 1vw
+      position relative
+      &.current
+        background linear-gradient(bottom, rgba(255,255,255,0.6),rgba(255,255,255,0.3), rgba(255,255,255,0))
+        shadow()
+        &:before
+
+          content ''
+          display block
+          position absolute
+          top 0.74vw
+          right 0.74vw
+          z-index 0
+          size 3vw
+          background transparent
+          border 1px solid #044B8D
+          round()
+
+
+
+        &:after
+          content ''
+          display block
+          position absolute
+          top 1.2vw
+          right 1.2vw
+          z-index 0
+          size 2.3vw
+          background #044B8D
+          round()
+
+
+      &-title
+        thin 1.2rem 1.2rem
+        padding-bottom 1rem
+        position relative
+        z-index 3
+      &-role
+        padding-bottom 1rem
+
+  &-map
+    position absolute
+    size 90% 65%
+    setPosition center
+    top 5vmin
+    text-align center
+    &-wrapper
+      height 100%
+      max-width 94vw
+      overflow auto
+    &-container
+      height 100%
+      position relative
+      width auto
+      display inline-block
+
+    img
+      height 98%
+
+    .point
+      position absolute
+      size 2vh
+      background #044B8D
+      cursor pointer
+      border-radius 500px
+      transform translate(-20%,-20%)
+
+      &.current
+        background: transparent
+
+        &:after
+          display block
+          content ''
+          size 100%
+          border-radius 500px
+          background #044B8D
+
+          @keyframes {pulse}
+            0%
+              transform scale(0.5)
+
+            100%
+              transform scale(1)
+
+          animation pulse 0.7s ease reverse infinite
+
+
+
+
+        &:before
+          display block
+          content ''
+          size 200%
+          position absolute
+          top -54%
+          left -52%
+
+          background transparent
+          border 1px solid #044B8D
+          border-radius 500px
+          opacity 0.6
+
+
+
+
+
+  &-header
+    flexy row
+    flex 0 0 10vh
+    justify flex-start center
+    color white
+    align-self flex-start
+    padding-left 5vw
+    &-goback
+      display flex
+      font-size 2rem
+      line-height 3rem
+      width 40px
+      cursor pointer
+      position relative
+      z-index 20
+      &:before
+        icon "\f3d2"
+
+    &-title
+      display flex
+      cursor pointer
+      position relative
+      z-index 20
+      thin 1.2rem 3rem
+
+
+  &-team
+    flexy row
+    flex 0 0
+    justify center flex-start
+    size 100%
+    margin-top 8vmin
+    padding 0 1vmin
+    &-member
+      flexy column nowrap
+      color white
+      justify flex-start center
+      margin 2*(100/128)vw (100/128)vw
+      shadow()
+      &-avatar
+        display flex
+        round()
+        size (86/8)vw (86/8)vw
+        img
+          width 100%
+      &-name
+        bold 1rem 2rem
+      &-position
+        thin 0.8rem 1.2rem
+      &-mail
+        thin 0.7rem 1rem
+
+
+
+
+

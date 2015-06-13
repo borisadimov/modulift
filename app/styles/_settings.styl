@@ -16,6 +16,16 @@ regular(size = 1rem, line = 1.4rem, space = 0.02rem)
   -webkit-font-smoothing: antialiased
   letter-spacing space
 
+medium(size = 1rem, line = 1.4rem, space = 0.02rem)
+  font: 600 size/line 'Helvetica Neue', Helvetica Neue, Helvetica, Arial
+  -webkit-font-smoothing: antialiased
+  letter-spacing space
+
+bold(size = 1rem, line = 1.4rem, space = 0.02rem)
+  font: 700 size/line 'Helvetica Neue', Helvetica Neue, Helvetica, Arial
+  -webkit-font-smoothing: antialiased
+  letter-spacing space
+
 
 
 responds($size = '1000px')
@@ -30,6 +40,45 @@ tablet()
   +responds(780px)
     {block}
 
+
+setPosition($position)
+  if $position == middle
+    top: 50%
+    transform: translateY(-50%)
+  if $position == center
+    left: 50%
+    transform: translateX(-50%)
+  if $position == perfect
+    top: 50%
+    left: 50%
+    transform: translate(-50%,50%)
+
+
+flexy($direction = row, $wrap = wrap)
+  display flex
+  flex-flow $direction $wrap
+
+justify($just = center, $align = center)
+  justify-content $just
+  align-items $align
+
+flex()
+  if length(arguments) > 0
+    flex arguments
+  else
+    flex 0 0 auto
+
+size($width = auto, $height = $width)
+  width $width
+  height $height
+
+shadow()
+  text-shadow: 1px 1px 0.4px rgba(0,0,0,0.5)
+
+
+round()
+  border-radius 500px
+  overflow hidden
 
 icon(code = ' ')
   content: code

@@ -22,65 +22,65 @@ config.nav = [
     title: 'Techical Information'
     subnav: [
         title: 'User Instructions UK'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'User Instructions USA'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Load Charts'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Distributor Packs'
-        alias: 'test'
+        alias: 'docs'
     ]
   ,
     alias: 'presentation'
     title: 'Presentation Material'
     subnav: [
       title: 'Presentations'
-      alias: 'test'
+      alias: 'docs'
     ]
   ,
     alias: 'literature'
     title: 'Marketing Literature'
     subnav: [
         title: 'Brochures'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Catalogues'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Distributor Packs'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Leaflets'
-        alias: 'test'
+        alias: 'docs'
     ]
   ,
     alias: 'press'
     title: 'In The Press'
     subnav: [
         title: 'Press Releases'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Case Studies'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'News'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Exhibitition Schedule'
-        alias: 'test'
+        alias: 'docs'
     ]
   ,
     alias: 'photo'
     title: 'Photo & Video'
     subnav: [
         title: 'Photos'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Videos'
-        alias: 'test'
+        alias: 'docs'
     ]
   ,
     alias: 'message'
@@ -94,18 +94,105 @@ config.nav = [
     title: 'Contacts'
     subnav: [
         title: 'Send Message'
-        alias: 'test'
+        alias: 'docs'
       ,
         title: 'Modulift Team'
-        alias: 'test'
+        alias: 'team'
       ,
         title: 'Our Network'
-        alias: 'test'
+        alias: 'network'
       ,
         title: 'Your Account'
-        alias: 'test'
+        alias: 'docs'
     ]
 ]
+
+
+config.team = [
+
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+  ,
+    avatar: '/images/team-avatar.jpg'
+    name: 'Sarah Spivey'
+    position: 'Managing Director'
+    mail: 'sarah@modulift.com'
+]
+
+config.network = [
+
+    x: 0.63
+    y: 0.47
+  ,
+    x: 0.55
+    y: 0.35
+
+
+]
+
 
 
 

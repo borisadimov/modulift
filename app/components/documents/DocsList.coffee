@@ -7,18 +7,24 @@
 
 
 
-InstructionsUK = Exim.createView
+DocsList = Exim.createView
   mixins: [Navigation, State]
 
   componentDidMount: ->
     # @transitionTo 'index'
 
+  goback: ->
+    @transitionTo 'index'
+
+  openCurrent: ->
+    document.location.href = "/viewer.html?#{@current.link}"
 
   render: ->
     div className: 'documents',
       div className: 'documents-header',
-        div className: 'documents-header-text'
-        div className: 'documents-header-goback'
+        div className: 'documents-header-text',
+          'Document Browser'
+        div className: 'documents-header-goback', onClick: @goback
 
       div className: 'documents-wrapper',
         div className: 'documents-menu',
@@ -43,9 +49,9 @@ InstructionsUK = Exim.createView
 
         div className: 'documents-preview',
           div className: 'close'
-          div className: 'documents-preview-content',
+          div className: 'documents-preview-content', onClick: @openCurrent,
             img src: '/images/preview.jpg'
 
 
 
-module.exports = InstructionsUK
+module.exports = DocsList
