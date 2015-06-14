@@ -44,7 +44,11 @@ Index = Exim.createView
   navigate: (alias) ->
     switch alias
       when 'message' then document.location.href = 'mailto:xyz@something.com'
-      else @transitionTo alias
+      else
+        if alias.split('/').length > 1
+          @transitionTo alias.split('/')[0], { alias: alias.split('/')[1]}
+        else
+          @transitionTo alias
 
   render: ->
 

@@ -23,7 +23,7 @@
     overflow hidden
     padding-top 2vmin
     &-wrapper
-      size 100% 120%
+      size 100% 100%
       overflow-x scroll
 
     &-scroller
@@ -86,14 +86,22 @@
       height 100%
       max-width 94vw
       overflow auto
-    &-container
-      height 100%
       position relative
+    &-container
+      // height 100%
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
       width auto
       display inline-block
+      background url('/images/worldmap.png') center center no-repeat
+      background-size auto 100%
 
     img
       height 98%
+      width auto
 
     .point
       position absolute

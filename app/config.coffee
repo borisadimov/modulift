@@ -22,65 +22,65 @@ config.nav = [
     title: 'Techical Information'
     subnav: [
         title: 'User Instructions UK'
-        alias: 'docs'
+        alias: 'documents/user-instructions-uk'
       ,
         title: 'User Instructions USA'
-        alias: 'docs'
+        alias: 'documents/user-instructions-usa'
       ,
         title: 'Load Charts'
-        alias: 'docs'
+        alias: 'documents/load-charts'
       ,
         title: 'Distributor Packs'
-        alias: 'docs'
+        alias: 'documents/distributor-packs-uk'
     ]
   ,
     alias: 'presentation'
     title: 'Presentation Material'
     subnav: [
       title: 'Presentations'
-      alias: 'docs'
+      alias: 'documents/presentation'
     ]
   ,
     alias: 'literature'
     title: 'Marketing Literature'
     subnav: [
         title: 'Brochures'
-        alias: 'docs'
+        alias: 'documents/brochure'
       ,
         title: 'Catalogues'
-        alias: 'docs'
+        alias: 'documents/catalogues'
       ,
         title: 'Distributor Packs'
-        alias: 'docs'
+        alias: 'documents/distributor-packs-uk'
       ,
         title: 'Leaflets'
-        alias: 'docs'
+        alias: 'documents/leaflets'
     ]
   ,
     alias: 'press'
     title: 'In The Press'
     subnav: [
         title: 'Press Releases'
-        alias: 'docs'
+        alias: 'documents/press-releases'
       ,
         title: 'Case Studies'
-        alias: 'docs'
+        alias: 'documents/case-study'
       ,
         title: 'News'
-        alias: 'docs'
+        alias: 'documents/news'
       ,
         title: 'Exhibitition Schedule'
-        alias: 'docs'
+        alias: 'documents/expo-schedule'
     ]
   ,
     alias: 'photo'
     title: 'Photo & Video'
     subnav: [
         title: 'Photos'
-        alias: 'docs'
+        alias: 'documents/'
       ,
         title: 'Videos'
-        alias: 'docs'
+        alias: 'documents/'
     ]
   ,
     alias: 'message'
@@ -94,7 +94,7 @@ config.nav = [
     title: 'Contacts'
     subnav: [
         title: 'Send Message'
-        alias: 'docs'
+        alias: 'documents/'
       ,
         title: 'Modulift Team'
         alias: 'team'
@@ -103,7 +103,7 @@ config.nav = [
         alias: 'network'
       ,
         title: 'Your Account'
-        alias: 'docs'
+        alias: 'documents/'
     ]
 ]
 

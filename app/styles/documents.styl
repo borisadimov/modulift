@@ -64,7 +64,7 @@
       position: relative
       display: flex
 
-      &.active
+      &.current
         background: #044B8D
         color: white
 
@@ -94,7 +94,7 @@
           +tablet()
             font-size: 2.4rem
             margin-top: -1.2rem
-      &.active &-icon
+      &.current &-icon
         color: white
         &:before
           color: white
@@ -106,7 +106,7 @@
         border-bottom 1px solid dgrey
         position: relative
 
-      &.active &-label
+      &.current &-label
         border: none
 
       &-actions
@@ -144,7 +144,8 @@
     overflow-y auto
     background white
     position relative
-    padding 3vw 2vw 2vw 2vw
+    padding 2vw 2vw 2vw 2vw
+
 
     // .close
     //   cursor: pointer
@@ -167,6 +168,11 @@
       flex-flow: column nowrap
       justify-content: flex-start
       align-items: center
+      display none
+
+      cursor pointer
+      &.current
+        display block
       img
         width: 90%
 
