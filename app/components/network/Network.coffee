@@ -7,7 +7,17 @@
 
 
 Team = Exim.createView
-  mixins: [Navigation, State]
+  mixins: [Navigation, State, ParseReact.Mixin]
+
+  current:
+    cover: ''
+    file: ''
+    id: ''
+
+  observe: ->
+
+    points: (new Parse.Query('Our_Network_tbl')).ascending('createdAt')
+
 
   goback: ->
     @transitionTo 'index'
@@ -25,29 +35,32 @@ Team = Exim.createView
           div className: 'network-map-container',
             # img src: '/images/worldmap.png'
 
-            for point in network
+           @data.points.map (point) ->
               div className: 'point',
-              style: {left:"#{point.x*100}%", top: "#{point.y*100}%"}
+              style: {left:"#{point.Position_X*100}%", top: "#{point.Position_Y*100}%"}
 
       div className: 'network-points',
         div className: 'network-points-wrapper',
           div className: 'network-points-scroller',
-            for i in [1..10]
-              div className: "network-points-point #{cx 'current': i is 4}",
+            @data.points.map (point) ->
+              window.point  = point
+              div className: "network-points-point",
                 div className: 'network-points-point-title',
-                  'Safety Technical Serv - Oman'
+                  point.Title
                 div className: 'network-points-point-contact',
-                  'Musthafa Rahman'
+                  point.Contact
                 div className: 'network-points-point-email',
-                  'musthafa@safetyoman.com'
+                  point.Email
                 div className: 'network-points-point-role',
-                  'MD'
+                  point.Role
                 div className: 'network-points-point-street',
-                  'P.O. Box 3288'
+                  point.Street
                 div className: 'network-points-point-city',
-                  'Seeb'
+                  point.City
                 div className: 'network-points-point-state',
-                  'Oman,  PC-111'
+                  point.State
+                div className: 'network-points-point-phone',
+                  point.PhoneNumber
 
 
 
