@@ -23,7 +23,7 @@ Team = Exim.createView
       div className: 'network-map',
         div className: 'network-map-wrapper',
           div className: 'network-map-container',
-            img src: '/images/worldmap.svg'
+            img src: '/images/worldmap.png'
 
             for point in network
               div className: 'point',
