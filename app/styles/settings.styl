@@ -51,29 +51,72 @@ setPosition($position)
   if $position == perfect
     top: 50%
     left: 50%
-    transform: translate(-50%,50%)
+    transform: translate(-50%,-50%)
+
+
 
 
 flexy($direction = row, $wrap = wrap)
+  display -webkit-box
+  display -moz-box
+  display -ms-flexbox
+  display -webkit-flex
   display flex
+  -webkit-flex-flow $direction $wrap
+  -moz-flex-flow $direction $wrap
+  -ms-flex-flow $direction $wrap
   flex-flow $direction $wrap
 
 justify($just = center, $align = center)
   justify-content $just
   align-items $align
 
+
+justify-content()
+  -webkit-justify-content arguments
+  -moz-justify-content arguments
+  -ms-justify-content arguments
+  justify-content arguments
+
+
+align-items()
+  -webkit-align-items arguments
+  -moz-align-items arguments
+  -ms-align-items arguments
+  align-items arguments
+
+align-content()
+  -webkit-align-content arguments
+  -moz-align-content arguments
+  -ms-align-content arguments
+  align-content arguments
+
+
 flex()
   if length(arguments) > 0
     flex arguments
+    -webkit-box-flex arguments
+    -moz-box-flex arguments
+    -webkit-flex arguments
+    -moz-flex arguments
+    -webkit-flex arguments
+    -ms-flex arguments
   else
+    -webkit-box-flex 0 0 auto
+    -moz-box-flex  0 0 auto
+    -webkit-flex 0 0 auto
+    -moz-flex  0 0 auto
+    -webkit-flex  0 0 auto
+    -ms-flex  0 0 auto
     flex 0 0 auto
+
 
 size($width = auto, $height = $width)
   width $width
   height $height
 
 shadow()
-  text-shadow: 1px 1px 0.4px rgba(0,0,0,0.5)
+  text-shadow 1px 1px 0.4px rgba(0,0,0,0.5)
 
 
 round()

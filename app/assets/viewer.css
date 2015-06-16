@@ -13,6 +13,18 @@
  * limitations under the License.
  */
 
+#goback a{
+  text-decoration: none;
+  color: #fff;
+  margin: 0 20px;
+  line-height: 32px;
+}
+
+#goback a:visited{
+
+  color: #fff;
+}
+
 .textLayer {
   position: absolute;
   left: 0;

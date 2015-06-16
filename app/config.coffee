@@ -4,18 +4,6 @@ module.exports = config = {api: {}}
 
 config.production = false
 
-# config.pin = '1111'
-
-# config.client = 'apple'
-# config.platform = 'dekstop'
-
-config.hostname = if config.production
-  'https://apple-wellnesscenter.com/'
-else
-  'http://candyshop.local/'
-
-config.api.root = "#{config.hostname}v1/"
-
 
 config.nav = [
     alias: 'tech'
@@ -77,10 +65,10 @@ config.nav = [
     title: 'Photo & Video'
     subnav: [
         title: 'Photos'
-        alias: 'documents/'
+        alias: 'gallery/photos'
       ,
         title: 'Videos'
-        alias: 'documents/'
+        alias: 'gallery/videos'
     ]
   ,
     alias: 'message'
@@ -94,7 +82,7 @@ config.nav = [
     title: 'Contacts'
     subnav: [
         title: 'Send Message'
-        alias: 'documents/'
+        alias: 'message'
       ,
         title: 'Modulift Team'
         alias: 'team'
@@ -182,16 +170,6 @@ config.team = [
     mail: 'sarah@modulift.com'
 ]
 
-config.network = [
-
-    x: 0.63
-    y: 0.47
-  ,
-    x: 0.55
-    y: 0.35
-
-
-]
 
 
 

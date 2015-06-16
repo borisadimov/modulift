@@ -1,6 +1,8 @@
 {div, h1, h2, a, button, img} = Exim.DOM
 {cx} = Exim.helpers
 {Navigation, State, RouteHandler} = Exim.Router
+{addClass, removeClass, toggle} = require 'lib/utils'
+
 $ = document.querySelector.bind(document)
 $$ = document.querySelectorAll.bind(document)
 
@@ -19,21 +21,16 @@ Index = Exim.createView
 
   openModal: (name) ->
     if $('.modal-overlay') and $(".modal-overlay .modal-#{name}")
-      $('.modal-overlay').style.display = "flex"
-      $('.modal-overlay').style.pointerEvents = "auto"
-
-      $('.modal-overlay').style.opacity = 1
-      $(".modal-overlay .modal-#{name}").style.display = "flex"
-
+      addClass $('.modal-overlay'), 'showed'
+      addClass $(".modal-overlay .modal-#{name}"), 'showed'
 
 
   closeModal: ->
     if $('.modal-overlay')
-      $('.modal-overlay').style.pointerEvents = "none"
-      $('.modal-overlay').style.opacity = 0
-      $$(".modal-overlay .index-modal")
+
+      removeClass $('.modal-overlay'), 'showed'
       for modal in $$(".modal-overlay .index-modal")
-        modal.style.display = "none"
+        removeClass modal, 'showed'
 
   mailto: ->
     document.location.href = 'mailto:xyz@something.com'
@@ -42,13 +39,13 @@ Index = Exim.createView
     @transitionTo 'team'
 
   navigate: (alias) ->
-    switch alias
-      when 'message' then document.location.href = 'mailto:xyz@something.com'
+    if alias.indexOf('message') > -1
+      document.location.href = 'mailto:xyz@something.com'
+    else
+      if alias.split('/').length > 1
+        @transitionTo alias.split('/')[0], { alias: alias.split('/')[1]}
       else
-        if alias.split('/').length > 1
-          @transitionTo alias.split('/')[0], { alias: alias.split('/')[1]}
-        else
-          @transitionTo alias
+        @transitionTo alias
 
   render: ->
 

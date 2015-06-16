@@ -9,3 +9,7 @@ exports.config =
       joinTo: 'stylesheets/app.css'
     templates:
       joinTo: 'javascripts/app.js'
+
+  plugins:
+    autoReload:
+      port: [12355]
