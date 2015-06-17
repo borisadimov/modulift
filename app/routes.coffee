@@ -11,7 +11,8 @@ module.exports =
   Route name: 'app', handler: mount('app/App'), path: '/',
     Route name: 'index',    handler: mount('index')
     Route name: 'documents', handler: mount('documents/Docs'), path: '/documents/:alias'
-    Route name: 'gallery', handler: mount('documents/Gallery'), path: '/gallery/:alias'
+    Route name: 'gallery', handler: mount('documents/Gallery'), path: '/gallery'
+    Route name: 'video', handler: mount('documents/Video'), path: '/video'
     Route name: 'team',     handler: mount('network/Team'), path: '/team'
     Route name: 'network',     handler: mount('network/Network'), path: '/network'
 

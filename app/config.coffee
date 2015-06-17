@@ -65,10 +65,10 @@ config.nav = [
     title: 'Photo & Video'
     subnav: [
         title: 'Photos'
-        alias: 'gallery/photos'
+        alias: 'gallery'
       ,
         title: 'Videos'
-        alias: 'gallery/videos'
+        alias: 'video'
     ]
   ,
     alias: 'message'

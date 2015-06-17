@@ -18,7 +18,6 @@ Gallery = Exim.createView
 
   observe: ->
     photos: (new Parse.Query('image_tbl')).ascending('createdAt')
-
   goback: ->
     @transitionTo 'index'
 
@@ -52,7 +51,7 @@ Gallery = Exim.createView
 
 
   setCurrent: (id) ->
-    for item in $$(".gallery-item")
+    for item in $$(".photobox-item")
       removeClass item, 'current'
 
     if $(".id-#{id}")
