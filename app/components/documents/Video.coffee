@@ -4,8 +4,8 @@
 {Navigation, State, RouteHandler} = Exim.Router
 {addClass, removeClass, toggle} = require 'lib/utils'
 
-$ = document.querySelector.bind(document)
-$$ = document.querySelectorAll.bind(document)
+
+
 
 
 Video = Exim.createView
@@ -21,48 +21,58 @@ Video = Exim.createView
   goback: ->
     @transitionTo 'index'
 
+  stopVideo: (current) ->
+    iframe = $("#vimeo#{current}")[0]
+
+    player = $f(iframe)
+
+    player.api('pause')
+
+
   next: ->
 
-    currentIndex = $(".videobox-item.current").dataset.index
-    length = $$('.videobox-item').length
+    currentIndex = $(".videobox-item.current").data('index')
+    @stopVideo(currentIndex)
+    length = $('.videobox-item').length
 
-    removeClass $(".videobox-item.current"), 'current'
+    $(".videobox-item.current").removeClass('current')
 
     if +currentIndex+1 < +length
-      addClass $(".index-#{+currentIndex+1}"), 'current'
+      $(".index-#{+currentIndex+1}").addClass 'current'
     else
-      addClass $(".index-0"), 'current'
+      $(".index-0").addClass 'current'
+
+
+
+
+
 
 
 
   prev: ->
 
+    currentIndex = $(".videobox-item.current").data('index')
+    @stopVideo(currentIndex)
+    length = $('.videobox-item').length
 
-    currentIndex = $(".videobox-item.current").dataset.index
-    length = $$('.videobox-item').length
-
-    removeClass $(".videobox-item.current"), 'current'
+    $(".videobox-item.current").removeClass 'current'
 
     if +currentIndex-1 >= 0
-      addClass $(".index-#{+currentIndex-1}"), 'current'
+      $(".index-#{+currentIndex-1}").addClass 'current'
     else
-      addClass $(".index-#{+length-1}"), 'current'
+      $(".index-#{+length-1}").addClass 'current'
 
 
 
   setCurrent: (id) ->
-    for item in $$(".videobox-item")
-      removeClass item, 'current'
-
-    if $(".id-#{id}")
-      addClass $(".id-#{id}"), 'current'
-
-    if $('.modal-overlay')
-      addClass $('.modal-overlay'), 'showed'
+    $(".videobox-item").removeClass 'current'
+    $(".id-#{id}").addClass 'current'
+    $('.modal-overlay').addClass 'showed'
 
   closeModal: ->
-    if $('.modal-overlay')
-      removeClass $('.modal-overlay'), 'showed'
+    currentIndex = $(".videobox-item.current").data('index')
+    @stopVideo(currentIndex)
+    $('.modal-overlay').removeClass 'showed'
 
 
   openCurrent: ->
@@ -91,7 +101,8 @@ Video = Exim.createView
         div className: 'videobox',
           @data.videos.map (video, i) =>
             div className: "videobox-item id-#{video.objectId} index-#{i}", 'data-index': "#{i}",
-              iframe src: "https://player.vimeo.com/video/#{video.vimeo_url}?byline=0&portrait=0",
+              iframe id: "vimeo#{i}",
+              src: "https://player.vimeo.com/video/#{video.vimeo_url}?byline=0&portrait=0api=1&player_id=vimeo#{i}",
               width: "801",
               height:"451",
               frameBorder: "0",
