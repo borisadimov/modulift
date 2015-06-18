@@ -1,5 +1,5 @@
-# request   = require 'lib/request'
-# authStore = require 'stores/auth'
+request   = require 'lib/request'
+authStore = require 'stores/auth'
 config    = require 'config'
 
 module.exports = appStore = Exim.createStore
@@ -9,9 +9,12 @@ module.exports = appStore = Exim.createStore
 
   initial:
     config: {}
-    sidebar: true
 
   start:
+
+    will: ->
+      authStore.actions.fetchUser().catch -> console.error 'You are not authenticated'
+
     on: ->
       # request.get('config').then authStore.actions.fetchUser()
       Parse.initialize("W8qSFepvDbmGlUkeFAq6iS1Mkjvvpi1umKgXEsTm",

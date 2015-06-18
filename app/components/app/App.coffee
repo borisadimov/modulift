@@ -1,7 +1,5 @@
-# authStore = require 'stores/auth'
+authStore = require 'stores/auth'
 appStore  = require 'stores/app'
-
-# LeftSidebar = require './LeftSidebar'
 
 {div,h1} = Exim.DOM
 {cx} = Exim.helpers
@@ -9,11 +7,10 @@ appStore  = require 'stores/app'
 
 
 App = Exim.createView
-  mixins: [Navigation, State]
+  mixins: [Navigation, State, authStore.connect('loggedIn')]
 
   componentDidMount: ->
-    # @transitionTo if @state.loggedIn then 'appointments' else 'signin'
-    @transitionTo 'index'
+    @transitionTo 'signin' unless @state.loggedIn
 
 
   render: ->

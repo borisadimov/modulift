@@ -1,0 +1,75 @@
+@import 'nib'
+@import 'settings'
+
+.login
+  min-width: 100%
+  min-height: 100%
+  background: url(/images/background.jpg) 50% 50% no-repeat
+  background-size: cover
+
+  padding: 5vmin
+  flexy column nowrap
+  position: relative
+
+  .logotype
+    flex: 1 1 auto
+    color: white
+    width: 180px
+    flexy column nowrap
+    justify-content: center
+    align-items: center
+    // padding-bottom: 2vh
+    &-img
+      width: 180px
+      img
+        width: 180px
+
+    &-link
+      width: 180px
+      text-align: center
+      margin-top: 10px
+      font-size: 17px
+      text-shadow: 1px 1px 0.4px rgba(0,0,0,0.5)
+
+  .flipped
+    flex 5 1 auto
+    width 100%
+    flexy row wrap
+    justify-content space-between
+    flex-wrap wrap
+    align-items center
+    flexy row nowrap
+    justify center flex-start
+    &-inner
+      flex 0 0 auto
+      size 50vw 50vh
+      background rgba(255,255,255,0.5)
+      border-radius 4px
+      color #fff
+      padding 5vh 5vw
+      shadow()
+
+      .title
+        regular 1.5rem 2.6rem
+
+      input
+        width 100%
+        border-radius 5px
+        background rgba(255,255,255,0.4)
+        border 1px solid #fff
+        padding 0.4rem 0.6rem
+
+        height 3rem
+        margin-bottom: 0.6rem
+        &:focus
+          outline none
+
+
+
+
+
+
+
+
+
+
