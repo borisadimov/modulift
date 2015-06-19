@@ -1,3 +1,6 @@
+store    = require 'stores/auth'
+appStore = require 'stores/app'
+
 {div, h1, h2, a, button, img} = Exim.DOM
 {cx} = Exim.helpers
 {Navigation, State, RouteHandler, Link} = Exim.Router
@@ -12,10 +15,30 @@ animDuration = 400
 
 
 Index = Exim.createView
-  mixins: [Navigation, State]
+  name: 'flipped'
+  staticView: true
+  noHeader: true
+  fadeIn: true
+  mixins: [store.connect('error', 'loggedIn'), Navigation]
+  statics:
+    willTransitionTo: (transition) ->
+      transition.redirect('app') if store.get('loggedIn')
 
   getInitialState: ->
     flipped: false
+
+  flip: (evt) ->
+    evt.preventDefault()
+    @setState flipped: !@state.flipped
+
+  componentDidUpdate: ->
+    if @state.error
+      container = @refs['container'].getDOMNode()
+      container.classList.add('shake')
+      setTimeout((=> container.classList.remove('shake')), animDuration)
+    else
+      if @state.loggedIn
+        @transitionTo('index')
 
   render: ->
 

@@ -59,7 +59,16 @@ module.exports = store = Exim.createStore
     will: ->
       @reset 'error'
     on: (args) ->
-      request.post 'session', args
+      # request.post 'session', args
+      console.log args
+      new Promise (res, rej) ->
+        Parse.User.logIn args.name, args.password,
+          success: (user) ->
+            res user
+          error: (user, error) ->
+            rej user, error
+
+
     did: (response) ->
       @set
         error: false

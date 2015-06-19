@@ -13,3 +13,7 @@ exports.config =
   plugins:
     autoReload:
       port: [12355]
+    postcss:
+      config: (postcss) ->
+        postcss().
+        use(require('autoprefixer')(['last 8 versions']).postcss)

@@ -13,13 +13,14 @@
     "test": "brunch test"
   },
   "dependencies": {
-    "autoprefixer": "^5.1.0",
+    "autoprefixer": "^5.2.0",
     "clean-css-brunch": ">= 1.0 < 1.8",
     "coffee-script": "^1.8.0",
     "coffee-script-brunch": ">= 1.0 < 1.8",
     "css-brunch": ">= 1.0 < 1.8",
     "csswring": "^3.0.0",
     "javascript-brunch": ">= 1.0 < 1.8",
+    "lost": "^6.3.0",
     "postcss-brunch": "^0.4.1",
     "react-brunch": "^1.0.6",
     "stylus-brunch": ">= 1.0 < 1.8",

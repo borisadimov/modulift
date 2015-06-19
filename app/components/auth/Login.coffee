@@ -3,7 +3,7 @@ store    = require 'stores/auth'
 
 config = require 'config'
 
-# Tooltip  = require 'components/elements/Tooltip'
+Tooltip  = require 'components/elements/Tooltip'
 
 slideAnim = 400
 delay = 100
@@ -24,7 +24,7 @@ Signin = Exim.createView
 
   componentDidMount: ->
     if autofocus
-      fn = => @refs.email.getDOMNode().focus()
+      fn = => @refs.name.getDOMNode().focus()
       setTimeout fn, slideAnim + delay
 
   shouldComponentUpdate: (nextProps, nextState) ->
@@ -40,7 +40,7 @@ Signin = Exim.createView
     store.actions.signin({name, password})
 
   showTooltip: ->
-    target = @refs.email.getDOMNode()
+    target = @refs.name.getDOMNode()
     position = top: target.offsetTop - 50, left: target.offsetLeft
     @setState tooltip: {type: 'signin_check', position, animate: true}
 
@@ -62,14 +62,15 @@ Signin = Exim.createView
       div className: 'input-wrapper password',
         input name: 'password', ref: 'password', type: 'Password', placeholder: 'Password', onKeyDown: @hideTooltip, value: @state.password, onChange: @onChange('password')
       input type: 'submit'
-      div className: "submit visible #{cx disabled: !(@state.password and @state.email)}", onClick: @signIn,
+      div className: "submit visible #{cx disabled: !(@state.password and @state.name)}", onClick: @signIn,
         if @state.signingIn
+          console.log spinner
           spinner()
         else
           'Sign In'
 
       div className: 'input-bottom',
-        a href: '', onClick: @props.flip, 'Forgot your password?'
+        a href: '', onClick: @props.flip, 'Forgotten password?'
 
       # Tooltip(@state.tooltip)
 

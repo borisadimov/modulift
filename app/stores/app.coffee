@@ -19,15 +19,15 @@ module.exports = appStore = Exim.createStore
       # request.get('config').then authStore.actions.fetchUser()
       Parse.initialize("W8qSFepvDbmGlUkeFAq6iS1Mkjvvpi1umKgXEsTm",
                          "VNNRUz21VBZwB4lOdqtyKfVtXuvwz8aCs8p3tg4G")
-      new Promise (res,rej) ->
-        Parse.User.logIn 'steve', 'testtest',
-          success: (user) ->
-            window.user = user
-            console.log user
-            res()
-          ,
-          error: (user, error) ->
-            rej()
+      # new Promise (res,rej) ->
+      #   Parse.User.logIn 'steve', 'testtest',
+      #     success: (user) ->
+      #       window.user = user
+      #       console.log user
+      #       res()
+      #     ,
+      #     error: (user, error) ->
+      #       rej()
 
 
     # did: (config) ->
