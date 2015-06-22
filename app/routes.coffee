@@ -19,6 +19,7 @@ module.exports =
     Route name: 'video', handler: mount('documents/Video'), path: '/video'
     Route name: 'team',     handler: mount('network/Team'), path: '/team'
     Route name: 'network',     handler: mount('network/Network'), path: '/network'
+    Route name: 'profile',     handler: mount('network/Profile'), path: '/profile'
 
     Redirect from:'/', to: defaultRouteName
     # Route name: 'signup',    handler: mount('auth/Signup')

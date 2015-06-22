@@ -16,8 +16,6 @@ animDuration = 400
 
 Index = Exim.createView
   name: 'flipped'
-  staticView: true
-  noHeader: true
   fadeIn: true
   mixins: [store.connect('error', 'loggedIn'), Navigation]
   statics:
@@ -52,14 +50,14 @@ Index = Exim.createView
           a href: "#", 'www.modulift.com'
 
 
-      div className: 'flipped auth',
+      div className: 'flipped-section auth',
         div className: 'flipped-inner',
-          div className: cx('flipped-container': true, flipped: @state.flipped), ref: 'container',
+          div className: cx('flipped-container': true, flipped: !@state.flipped), ref: 'container',
             div className: 'flipped-card',
               div className: 'flipped-front',
                 Login {@flip, animDuration, disabled: @state.flipped}
-              # div className: 'flipped-back',
-              #   Forgot {@flip, animDuration, disabled: !@state.flipped}
+              div className: 'flipped-back',
+                Forgot {@flip, animDuration, disabled: !@state.flipped}
 
 
 

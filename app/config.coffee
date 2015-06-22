@@ -91,7 +91,7 @@ config.nav = [
         alias: 'network'
       ,
         title: 'Your Account'
-        alias: 'documents/'
+        alias: 'profile'
     ]
 ]
 

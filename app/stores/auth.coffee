@@ -4,27 +4,16 @@ utils        = require 'lib/utils'
 config       = require 'config'
 # patientStore = require 'stores/patient'
 
-postAvatar = (file) ->
-  form = new FormData
-  form.append 'file', file
-  request.form('user/avatar', form)
-
 module.exports = store = Exim.createStore
   actions: [
     'findTargets'
     'fetchUser'
-    'uploadAvatar'
+    'checkSession'
     'signin'
     'signout'
     'signup'
     'forgot'
-    'lookup'
-    'startImpersonation'
-    'finishImpersonation'
-    'updateProfile'
-    'updateAccount'
-    'checkPin'
-    'clearPin'
+    'changepass'
     'clearError'
   ]
 
@@ -36,21 +25,51 @@ module.exports = store = Exim.createStore
     error: false
     pinCorrect: false
 
-  fetchUser:
+
+  checkSession:
     will: ->
-      @reset 'error'
-    on: ->
-      request.get('user')
+      Parse.User.current()
+    on: (current) ->
+      return current if !!current
+
+      token = localStorage.getItem('token')
+      new Promise (res,rej) =>
+        if !!token
+          Parse.User.become token
+        else
+          rej()
+
     did: (user) ->
       data =
         error: false
         loggedIn: true
         user: user
-      if user.proxying
-        data.isImpersonating = true
-        data.impersonationTarget = user
+
+      @set data
+
+    didNot: ->
+
+
+
+
+  fetchUser:
+    will: ->
+      @reset 'error'
+    on: ->
+      Parse.User.current().fetch().then (fetchedUser) ->
+        console.log fetchedUser.getUsername()
+      , (error) ->
+        console.log error
+      Parse.User.current().fetch()
+    did: (user) ->
+      console.log user
+      data =
+        error: false
+        loggedIn: true
+        user: user
       @set data
     didNot: ->
+      console.log 'nope'
 
 
   signin:
@@ -59,8 +78,6 @@ module.exports = store = Exim.createStore
     will: ->
       @reset 'error'
     on: (args) ->
-      # request.post 'session', args
-      console.log args
       new Promise (res, rej) ->
         Parse.User.logIn args.name, args.password,
           success: (user) ->
@@ -69,22 +86,26 @@ module.exports = store = Exim.createStore
             rej user, error
 
 
-    did: (response) ->
-      @set
+    did: (user) ->
+      data =
         error: false
-        user: response
+        user: user
         loggedIn: true
-    didNot: (resp) ->
-      resp.json().then (err) => @set error: err.error
+      @set data
+      localStorage.setItem 'token', user.getSessionToken()
+
+    didNot: (user) ->
+      # @set error: "Wrong username or password"
 
   signout:
     on: ->
-      req = request.del('session')
+      Parse.User.logOut()
     did: (args) ->
-      @set
+      data =
         error: false
         user: {}
         loggedIn: false
+      @set data
       localStorage.removeItem('token')
       setTimeout =>
         window.location.reload()
@@ -92,89 +113,55 @@ module.exports = store = Exim.createStore
 
   forgot:
     on: (email) ->
-      request.post('user/forgot', {email})
+      new Promise (res, rej) ->
+        Parse.User.requestPasswordReset email,
+          success: () ->
+            res()
+          error: (error) ->
+            rej error.message
 
-  lookup:
-    while: (lookingUp) ->
-      @set {lookingUp}
+  changepass:
     on: (args) ->
-      @creds = args
-      request.post("user/lookup", {email: args.email})
+      new Promise (res, rej) =>
+        Parse.User.current().fetch()
+        .then (fetchedUser) =>
+          console.log 'oldpass'
+          console.log args.oldpass
+          name = fetchedUser.getUsername()
+
+          Parse.User.logIn name, args.oldpass,
+
+          success: (user) ->
+            console.log('user, newpass')
+            console.log(user, args.newpass)
+
+            user.setPassword args.newpass
+            user.save().then (user) ->
+              console.log 'user'
+              console.log user
+              user.fetch().then (user) ->
+                console.log('Password changed', user)
+                res()
+              , (error) ->
+                console.log('Something went wrong', error)
+                rej()
+
+            error: (user, error) ->
+             console.log(user,error)
+             rej()
+
+
+
+        , (error) ->
+          console.error "Unauthorized"
+          rej()
+
     did: ->
-      @set error: false, email: @creds.email, password: @creds.password
-    didNot: (resp) ->
-      resp.json().then (err) => @set error: err.error
 
-  signup:
-    on: (credentials) ->
-      console.log credentials
-      request.post('user', credentials)
-    did: (data) ->
-      @reset 'error'
-    didNot: (resp) ->
-      resp.json().then (err) => @set error: err.error
 
-  uploadAvatar:
-    while: (avatarUploading) ->
-      @set {avatarUploading}
-    on: (args) ->
-      postAvatar(args.file)
-    did: (data) ->
-      user = @get('user')
-      user.avatar_url = data.avatar_url
-      @set {user}
-    didNot: (resp) ->
-      resp.json().then (err) =>
-        console.error err
+    didNot: ->
 
-  startImpersonation:
-    on: (user_id) ->
-      request.post('impersonation', id: user_id)
-    did: (patient) ->
-      @set
-        isImpersonating: true
-        impersonationTarget: patient
-        user: patient
-      patientStore.actions.fetch()
 
-  finishImpersonation:
-    on: ->
-      request.del('impersonation')
-    did: (user) ->
-      @set
-        isImpersonating: false
-        impersonationTarget: null
-        user: user
-      patientStore.actions.fetch()
-
-  findTargets:
-    on: (query, cb) ->
-      @cb = cb
-      request.get("patients?q=#{query}")
-    did: (targets) ->
-      @cb(targets)
-
-  # willFindTargets: (q, cb) ->
-  #   qe = new RegExp q, 'i'
-  #   req = request.get("patients?q=#{q}")
-  #   {req, cb}
-
-  # onFindTargets: (args) ->
-  #   {req, cb} = args
-  #   req.then (data) ->
-  #     cb(data)
-
-  setAvatar: (avatar) ->
-    @set {avatar}
-
-  updateProfile:
-    on: (newProfile) ->
-      p = config.defaultProfile
-
-      Promise.resolve
-        dob: p.dob
-        employee_id: p.employee_id
-        xoid: p.xoid
 
     did: (newProfile) ->
       @set 'profile', newProfile
@@ -193,20 +180,6 @@ module.exports = store = Exim.createStore
     did: (newAccount) ->
       @set 'account', newAccount
 
-  checkPin:
-    while: (checkingPin) ->
-      @set {checkingPin}
-    will: ->
-      @reset 'error'
-      @reset 'pinCorrect'
-    on: (pin) ->
-      request.post 'checkin/pin', {pin}
-    did: (response) ->
-      @set
-        error: false
-        pinCorrect: true
-    didNot: (resp) ->
-      @set error: 'pin'
 
   clearPin: ->
     @reset 'pinCorrect'

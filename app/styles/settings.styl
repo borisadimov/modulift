@@ -4,7 +4,7 @@ lgrey = #F7F6F4
 grey = #ededed
 dgrey = #dadada
 
-
+$placeholdcolor = #666
 
 thin(size = 1rem, line = 1.4rem, space = 0.02rem)
   font: 200 size/line 'Helvetica Neue', Helvetica Neue, Helvetica, Arial
@@ -62,14 +62,7 @@ setPosition($position)
 
 
 flexy($direction = row, $wrap = wrap)
-  display -webkit-box
-  display -moz-box
-  display -ms-flexbox
-  display -webkit-flex
   display flex
-  -webkit-flex-flow $direction $wrap
-  -moz-flex-flow $direction $wrap
-  -ms-flex-flow $direction $wrap
   flex-flow $direction $wrap
 
 justify($just = center, $align = center)
@@ -77,42 +70,12 @@ justify($just = center, $align = center)
   align-items $align
 
 
-justify-content()
-  -webkit-justify-content arguments
-  -moz-justify-content arguments
-  -ms-justify-content arguments
-  justify-content arguments
-
-
-align-items()
-  -webkit-align-items arguments
-  -moz-align-items arguments
-  -ms-align-items arguments
-  align-items arguments
-
-align-content()
-  -webkit-align-content arguments
-  -moz-align-content arguments
-  -ms-align-content arguments
-  align-content arguments
 
 
 flex()
   if length(arguments) > 0
     flex arguments
-    -webkit-box-flex arguments
-    -moz-box-flex arguments
-    -webkit-flex arguments
-    -moz-flex arguments
-    -webkit-flex arguments
-    -ms-flex arguments
   else
-    -webkit-box-flex 0 0 auto
-    -moz-box-flex  0 0 auto
-    -webkit-flex 0 0 auto
-    -moz-flex  0 0 auto
-    -webkit-flex  0 0 auto
-    -ms-flex  0 0 auto
     flex 0 0 auto
 
 

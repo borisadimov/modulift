@@ -13,12 +13,16 @@ module.exports = appStore = Exim.createStore
   start:
 
     will: ->
-      authStore.actions.fetchUser().catch -> console.error 'You are not authenticated'
-
-    on: ->
-      # request.get('config').then authStore.actions.fetchUser()
       Parse.initialize("W8qSFepvDbmGlUkeFAq6iS1Mkjvvpi1umKgXEsTm",
                          "VNNRUz21VBZwB4lOdqtyKfVtXuvwz8aCs8p3tg4G")
+
+
+
+    on: ->
+
+      authStore.actions.checkSession().catch -> console.error 'You are not authenticated'
+      # request.get('config').then authStore.actions.fetchUser()
+
       # new Promise (res,rej) ->
       #   Parse.User.logIn 'steve', 'testtest',
       #     success: (user) ->

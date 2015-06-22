@@ -1,0 +1,67 @@
+@import 'nib'
+@import 'settings'
+
+.network
+  min-width 100%
+  min-height 100%
+  background url(/images/network.jpg) center center no-repeat
+  background-size cover
+  flexy column nowrap
+  position relative
+  padding 1vmin
+  justify flex-start
+
+.profile
+  position relative
+  left -1vmin
+  flex 1 0 auto
+  width 100%
+  flexy column nowrap
+  color white
+  padding-top 15vh
+  thin 1.6rem 3rem
+
+  &-info
+    flexy column nowrap
+    padding-left 6vw
+    &-item
+
+      flexy row nowrap
+
+      &-key
+        flex 0 0 7rem
+
+      &-value
+        flex 1 0 auto
+
+
+  &-actions
+    width 40vw
+    thin 1.6rem 4.2rem
+    margin-top 10vh
+    flexy column nowrap
+    padding-right 6vw
+    background linear-gradient(left, rgba(255,255,255,0.6),rgba(255,255,255,0.2), rgba(255,255,255,0))
+    shadow()
+    &-item
+      padding 0vh 1vw 0.8rem 6vw
+      cursor pointer
+      &:not(:last-child)
+        border-bottom 1px solid #fff
+
+      &:before
+        font-size 3.6rem
+        position relative
+        top 0.8rem
+        margin-right 2rem
+        width 5rem
+        text-align center
+
+      &.signout:before
+        icon "\f29f"
+      &.changepass:before
+        icon "\f296"
+        transform rotate(220deg)
+
+
+

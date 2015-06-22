@@ -62,9 +62,8 @@ Signin = Exim.createView
       div className: 'input-wrapper password',
         input name: 'password', ref: 'password', type: 'Password', placeholder: 'Password', onKeyDown: @hideTooltip, value: @state.password, onChange: @onChange('password')
       input type: 'submit'
-      div className: "submit visible #{cx disabled: !(@state.password and @state.name)}", onClick: @signIn,
+      div className: "submit visible #{cx disabled: !(@state.password and @state.name), spinning: @state.signingIn } ", onClick: @signIn,
         if @state.signingIn
-          console.log spinner
           spinner()
         else
           'Sign In'
