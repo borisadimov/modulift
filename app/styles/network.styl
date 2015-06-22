@@ -34,6 +34,7 @@
       thin 0.8rem 1rem
       padding 1vw
       position relative
+      cursor pointer
       &.current
         background linear-gradient(bottom, rgba(255,255,255,0.6),rgba(255,255,255,0.3), rgba(255,255,255,0))
         shadow()
@@ -93,13 +94,24 @@
       width auto
       display inline-block
       background url('/images/worldmap.png') center center no-repeat
-      background-size auto 100%
+      background-size contain
+      overflow hidden
+
 
     img
       height 98%
       width auto
 
-    .point
+    &-points
+      height 100%
+      display inline-block
+      margin 0 auto
+      position relative
+      overflow hidden
+      img
+        opacity 0
+        height 100%
+    .map-point
       position absolute
       size 2vh
       background #044B8D

@@ -17,7 +17,6 @@ module.exports = appStore = Exim.createStore
                          "VNNRUz21VBZwB4lOdqtyKfVtXuvwz8aCs8p3tg4G")
 
 
-
     on: ->
 
       authStore.actions.checkSession().catch -> console.error 'You are not authenticated'

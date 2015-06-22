@@ -14,8 +14,28 @@ Team = Exim.createView
     file: ''
     id: ''
 
-  observe: ->
+  getInitialState: ->
+    scrolling: false
 
+
+  setCurrent: (id) ->
+
+    unless @state.scrolling
+      @setState('scrolling': true)
+      $(".map-point, .network-points-point").removeClass('current')
+
+      $(".#{id}").addClass('current')
+
+
+
+      $('.network-points-wrapper').scrollTo $(".network-points-scroller .#{id}")
+      , 600, onAfter: =>
+        @setState('scrolling': false)
+
+
+
+
+  observe: ->
     points: (new Parse.Query('Our_Network_tbl')).ascending('createdAt')
 
 
@@ -33,18 +53,17 @@ Team = Exim.createView
       div className: 'network-map',
         div className: 'network-map-wrapper',
           div className: 'network-map-container',
-            # img src: '/images/worldmap.png'
-
-           @data.points.map (point) ->
-              div className: 'point',
-              style: {left:"#{point.Position_X*100}%", top: "#{point.Position_Y*100}%"}
+            div className: 'network-map-points',
+              img src: '/images/worldmap.png'
+              @data.points.map (point) =>
+                div className: "map-point id-#{point.objectId}", onClick: @setCurrent.bind(point,"id-#{point.objectId}"),
+                style: {left:"#{point.Position_X*100}%", top: "#{point.Position_Y*100}%"}
 
       div className: 'network-points',
         div className: 'network-points-wrapper',
           div className: 'network-points-scroller',
-            @data.points.map (point) ->
-              window.point  = point
-              div className: "network-points-point",
+            @data.points.map (point) =>
+              div className: "network-points-point id-#{point.objectId}", onClick: @setCurrent.bind(point,"id-#{point.objectId}"),
                 div className: 'network-points-point-title',
                   point.Title
                 div className: 'network-points-point-contact',
