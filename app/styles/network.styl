@@ -10,20 +10,25 @@
   position relative
   padding 1vmin
   justify flex-start
+  &.map
+    min-height 580px
+    height 100%
 
   &-points
     position absolute
     bottom 2vmin
     left 1vw
-    size 98% 25%
-    overflow hidden
+    size 98% 28%
+    min-height: 220px
+    overflow: hidden
     padding-top 2vmin
     &-wrapper
       size 100% 100%
       overflow-x scroll
+      height 100%
 
     &-scroller
-      height 84%
+      height 100%
       flexy row nowrap
       justify flex-start stretch
 
@@ -35,6 +40,11 @@
       padding 1vw
       position relative
       cursor pointer
+      min-width 240px
+      +tablet()
+        flex 0 0 40vw
+      +mobile()
+        flex 0 0 60vw
       &.current
         background linear-gradient(bottom, rgba(255,255,255,0.6),rgba(255,255,255,0.3), rgba(255,255,255,0))
         shadow()
@@ -43,10 +53,10 @@
           content ''
           display block
           position absolute
-          top 0.74vw
-          right 0.74vw
+          top 7px
+          right 7px
           z-index 0
-          size 3vw
+          size 30px
           background transparent
           border 1px solid #044B8D
           round()
@@ -57,10 +67,10 @@
           content ''
           display block
           position absolute
-          top 1.2vw
-          right 1.2vw
+          top 15px
+          right 15px
           z-index 0
-          size 2.3vw
+          size 16px
           background #044B8D
           round()
 
@@ -79,6 +89,8 @@
     setPosition center
     top 5vmin
     text-align center
+    +mobile()
+      size 90% 50%
     &-wrapper
       height 100%
       max-width 94vw
@@ -97,6 +109,27 @@
       background-size contain
       overflow hidden
 
+      +responds(1150px)
+        left: 50%
+        top: 50%
+        right: initial
+        transform: translate(-50%,-50%)
+        size: 900px 547px
+
+      +responds(1000px)
+        size: 760px 462px
+
+      +responds(850px)
+        size: 650px 395px
+
+      +responds(730px)
+        size: 500px 304px
+
+      +responds(570px)
+        size: 400px 243px
+
+
+
 
     img
       height 98%
@@ -109,11 +142,11 @@
       position relative
       overflow hidden
       img
-        opacity 0
+        opacity 0.1
         height 100%
     .map-point
       position absolute
-      size 2vh
+      size 2vw
       background #044B8D
       cursor pointer
       border-radius 500px
