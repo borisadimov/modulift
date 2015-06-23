@@ -19,8 +19,8 @@ Signin = Exim.createView
   getInitialState: ->
     prod = config.production
     tooltip: {}
-    name: if prod then '' else 'steve'
-    password: if prod then '' else 'testtest'
+    name: ''
+    password: ''
 
   componentDidMount: ->
     if autofocus
