@@ -20,6 +20,9 @@
     justify-content: center
     align-items: center
     // padding-bottom: 2vh
+
+    +tablet()
+      flex: 1 1 auto
     &-img
       width: 180px
       img
@@ -31,6 +34,7 @@
       margin-top: 10px
       font-size: 17px
       text-shadow: 1px 1px 0.4px rgba(0,0,0,0.5)
+      display: none
 
   &-menu
     flex: 1 1 auto
@@ -39,10 +43,24 @@
     justify-content: space-between
     flex-wrap: wrap
     align-items: center
+    &:before
+      +tablet()
+        display: inline-block
+        flex: 0 0 auto
+        size: 25vw
+        content: ""
+        order: 5
+        opacity: 0
+      +mobile()
+        display: none
+
+    +tablet()
+      flex: 5 1 auto
 
     &-item
-      flex: 0 0 20vw
-      height: 20vw
+      order: 9
+      flex: 0 0 auto
+      size: 20vw
       margin: 1.1vw 0
       overflow: hidden
       transform: translate3d(0,0,0)
@@ -51,13 +69,27 @@
       transition: background-color 0.1s ease
       text-align: center
       padding: 3.5vw 3.5vw 2.5vw 3.5vw
+      overflow: hidden
+
       +tablet()
-        padding: 2vw 2vw 1vw 2vw
+        flex: 0 0 auto
+        size: 25vw
+        padding: 5vw 2vw 1vw 2vw
+      +mobile()
+        size: 25vh
+
       box-sizing: border-box
       cursor: pointer
       flexy column nowrap
       justify-content: space-between
       align-items: center
+
+      +tablet()
+        justify: center
+
+      for i in 1..8
+        &:nth-child({i})
+          order: i
 
       &:hover
         background-color: rgba(0,0,0,0.3)
@@ -71,8 +103,10 @@
         align-items: center
         text-align: center
         +tablet()
-          width: 8vw
-          height: 7vw
+          width: 11vw
+          height: 9vw
+        +mobile()
+          size: 11vh 9vh
         img
           width: 70%
           +tablet()
@@ -85,7 +119,12 @@
         color: white
         text-shadow: 1px 1px 0.4px rgba(0,0,0,0.5)
         thin()
-
+        +tablet()
+          flex 1 0 auto
+          margin-top 3vw
+        +mobile()
+          flex 0 0 auto
+          margin-top 3vh
 
 
 

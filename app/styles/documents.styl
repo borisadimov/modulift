@@ -10,6 +10,7 @@
 
   &-header
     flex: 0 0 60px
+    min-height 60px
     background: #044B8D
     color: #fff
     position: relative
@@ -36,7 +37,7 @@
 
 
   &-wrapper
-    flex: 1 1 auto
+    flex: 1 0 auto
     flexy row nowrap
     position relative
     overflow-y hidden
@@ -44,6 +45,7 @@
     align-content stretch
   &-menu
     flex 0 0 25vw
+    min-width 150px
     +responds(900px)
       flex 0 0 225px
     box-sizing border-box
@@ -56,6 +58,9 @@
 
     &-item
       flex 0 0 auto
+      +tablet()
+        min-height 50px
+      width: 100%
       regular 1rem 4rem
       color #979797
       cursor: pointer
@@ -78,7 +83,7 @@
         align-items: center
         padding-top: 3px
         +tablet()
-          font-size: 0.3rem
+          display: none
 
         &:before
           icon "\f12f"
@@ -103,6 +108,12 @@
         flex 1 0 auto
         border-bottom 1px solid dgrey
         position: relative
+        overflow: hidden
+        max-height: 4rem
+        text-overflow: ellipsis
+        +tablet()
+          padding-left: 10px
+          width: 100%
 
       &.current &-label
         border: none
@@ -119,6 +130,8 @@
           cursor: pointer
           display: inline-block
           margin-right: 0.6rem
+          +tablet()
+            display: none
           &:hover
             color: #EDC222
           &:before

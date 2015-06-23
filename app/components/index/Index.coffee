@@ -86,7 +86,7 @@ Index = Exim.createView
       div className: 'index-menu',
         menu
 
-      div className: 'modal-overlay',
+      div className: 'modal-overlay', onClick: @closeModal,
         modals,
         div className: 'modal-close', onClick: @closeModal
 

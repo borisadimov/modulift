@@ -44,7 +44,14 @@ big()
 tablet()
   +responds(780px)
     {block}
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)
+    {block}
 
+mobile()
+  +responds(630px)
+    {block}
+  @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait)
+    {block}
 
 setPosition($position)
   if $position == middle
