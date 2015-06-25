@@ -13,7 +13,13 @@ exports.config =
   plugins:
     autoReload:
       port: [12355]
-    postcss:
-      config: (postcss) ->
-        postcss().
-        use(require('autoprefixer')(['last 8 versions']).postcss)
+    stylus:
+      plugins: ['autoprefixer-stylus']
+    # postcss:
+    #   processors: [
+    #     require('autoprefixer')(),
+    #     require('csswring')
+    #   ]
+      # config: (postcss) ->
+      #   postcss().
+      #   use(require('autoprefixer')(['> 1%']).postcss)

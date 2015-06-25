@@ -1,3 +1,4 @@
+@import 'nib'
 white = #ffffff
 
 lgrey = #F7F6F4
@@ -53,6 +54,10 @@ mobile()
   @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait)
     {block}
 
+mlandscape()
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : landscape)
+    {block}
+
 setPosition($position)
   if $position == middle
     top: 50%
@@ -69,7 +74,7 @@ setPosition($position)
 
 
 flexy($direction = row, $wrap = wrap)
-  display flex
+  display: flex
   flex-flow $direction $wrap
 
 justify($just = center, $align = center)
@@ -81,7 +86,7 @@ justify($just = center, $align = center)
 
 flex()
   if length(arguments) > 0
-    flex arguments
+    flex  arguments
   else
     flex 0 0 auto
 
