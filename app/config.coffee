@@ -98,76 +98,26 @@ config.nav = [
 
 config.team = [
 
-    avatar: '/images/team-avatar.jpg'
+    avatar: '/images/contact-sarah.png'
     name: 'Sarah Spivey'
     position: 'Managing Director'
     mail: 'sarah@modulift.com'
   ,
+    avatar: '/images/contactSue.png'
+    name: 'Sue Caples'
+    position: 'Technical Director'
+    mail: 'sue@modulift.com'
+  ,
+    avatar: '/images/contactAnthony.png'
+    name: 'Anthony Culshaw'
+    position: 'Senior Design Engineer'
+    mail: 'anthony@modulift.com'
+  ,
+    avatar: '/images/contactChris.png'
+    name: 'Chris Schwab'
+    position: 'Sales Executive'
+    mail: 'chris@modulift.com'
 
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
-  ,
-    avatar: '/images/team-avatar.jpg'
-    name: 'Sarah Spivey'
-    position: 'Managing Director'
-    mail: 'sarah@modulift.com'
 ]
 
 

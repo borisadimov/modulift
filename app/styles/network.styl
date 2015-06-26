@@ -223,26 +223,32 @@
     flex 0 0
     justify center flex-start
     size 100%
-    margin-top 8vmin
-    padding 0 1vmin
+    padding 0 10vmin
     &-member
+      cursor pointer
       flexy column nowrap
       color white
+      flex 0 0 25vw
       justify flex-start center
-      margin 2*(100/128)vw (100/128)vw
+      margin 2vh 4vw 6vh 4vw
       shadow()
       &-avatar
         display flex
         round()
-        size (86/8)vw (86/8)vw
+        size (86/7)vw (86/7)vw
         img
           width 100%
       &-name
-        bold 1rem 2rem
+        bold 1.4rem 2rem
+        padding 0.4rem 0
+        text-align center
       &-position
-        thin 0.8rem 1.2rem
+        thin 1.2rem 1.8rem
+        width: 60%
+        text-align: center
       &-mail
         thin 0.7rem 1rem
+        display none
 
 
 

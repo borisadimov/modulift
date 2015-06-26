@@ -9,6 +9,10 @@
 Team = Exim.createView
   mixins: [Navigation, State]
 
+  mailto: (mail) ->
+    document.location.href = "mailto:#{mail}"
+
+
   goback: ->
     @transitionTo 'index'
 
@@ -22,15 +26,13 @@ Team = Exim.createView
           'Our People'
       div className: 'network-team',
         for member in team
-          div className: 'network-team-member',
+          div className: 'network-team-member', onClick: @mailto.bind(member, member.mail),
             div className: 'network-team-member-avatar',
               img src: member.avatar
             div className: 'network-team-member-name',
               member.name
             div className: 'network-team-member-position',
               member.position
-            div className: 'network-team-member-mail',
-              member.mail
 
 
 

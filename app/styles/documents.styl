@@ -37,7 +37,7 @@
 
 
   &-wrapper
-    flex: 1 0 auto
+    flex: 1 0
     flexy row nowrap
     position relative
     overflow-y hidden
@@ -105,11 +105,13 @@
 
 
       &-label
-        flex 1 0 auto
+        flex 1 0
         border-bottom 1px solid dgrey
         position: relative
         overflow: hidden
         max-height: 4rem
+        padding-right: 2rem
+        white-space: nowrap
         text-overflow: ellipsis
         +tablet()
           padding-left: 10px
