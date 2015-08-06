@@ -33,10 +33,13 @@ Index = Exim.createView
         removeClass modal, 'showed'
 
   mailto: ->
-    document.location.href = 'mailto:xyz@something.com'
+    document.location.href = 'mailto:sales@modulift.com'
 
   team: ->
     @transitionTo 'team'
+
+  presentation: ->
+    @transitionTo '/documents/presentation'
 
   navigate: (alias) ->
     if alias.indexOf('message') > -1
@@ -58,6 +61,8 @@ Index = Exim.createView
         clickHandler = @team
       if item.alias is 'message'
         clickHandler = @mailto
+      if item.alias is 'presentation'
+        clickHandler = @presentation
 
       div className: 'index-menu-item', onClick: clickHandler,
         div className: 'index-menu-item-icon',

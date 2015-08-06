@@ -95,7 +95,7 @@ module.exports = store = Exim.createStore
       localStorage.setItem 'token', user.getSessionToken()
 
     didNot: (user) ->
-      # @set error: "Wrong username or password"
+      sweetAlert('Oops...', 'Wrong login or password', 'error')
 
   signout:
     on: ->
@@ -118,6 +118,7 @@ module.exports = store = Exim.createStore
           success: () ->
             res()
           error: (error) ->
+            swal('Error', error.message, 'error')
             rej error.message
 
   changepass:
@@ -140,31 +141,35 @@ module.exports = store = Exim.createStore
               console.log 'user'
               console.log user
               user.fetch().then (user) ->
-                console.log('Password changed', user)
+                sweetAlert('Password changed', '','success')
                 res()
               , (error) ->
-                console.log('Something went wrong', error)
+                sweetAlert('Something went wrong', error, 'error')
                 rej()
 
             error: (user, error) ->
-             console.log(user,error)
+             sweetAlert(user,error,"error")
              rej()
 
 
 
         , (error) ->
-          console.error "Unauthorized"
+          sweetAlert "","Unauthorized", "error"
           rej()
 
     did: ->
+      Parse.User.logOut()
+      data =
+        error: false
+        user: {}
+        loggedIn: false
+      @set data
+      localStorage.removeItem('token')
+      setTimeout =>
+        window.location.reload()
+      , 500
 
 
-    didNot: ->
-
-
-
-    did: (newProfile) ->
-      @set 'profile', newProfile
 
   updateAccount:
     on: (newAccount) ->

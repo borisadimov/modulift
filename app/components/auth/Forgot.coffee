@@ -12,6 +12,7 @@ Forgot = Exim.createView
     store.actions.forgot(email)
       .then =>
         @setState sent: true
+        @setState error: false
       .catch (error) =>
         console.log error
         @setState error: true

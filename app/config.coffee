@@ -5,15 +5,23 @@ module.exports = config = {api: {}}
 config.production = false
 
 
+
+
 config.nav = [
     alias: 'tech'
     title: 'Techical Information'
     subnav: [
         title: 'User Instructions UK'
         alias: 'documents/user-instructions-uk'
+        order: 'order_index'
       ,
         title: 'User Instructions USA'
         alias: 'documents/user-instructions-usa'
+        order: 'order_index'
+      ,
+        title: 'User Instructions AUS'
+        alias: 'documents/user-instructions-aus'
+        order: 'order_index'
       ,
         title: 'Load Charts'
         alias: 'documents/load-charts'
@@ -36,7 +44,7 @@ config.nav = [
         alias: 'documents/brochure'
       ,
         title: 'Catalogues'
-        alias: 'documents/catalogues'
+        alias: 'documents/catalogue'
       ,
         title: 'Distributor Packs'
         alias: 'documents/distributor-packs-uk'
@@ -49,13 +57,15 @@ config.nav = [
     title: 'In The Press'
     subnav: [
         title: 'Press Releases'
-        alias: 'documents/press-releases'
+        alias: 'documents/press-release'
+        order: 'Date'
       ,
         title: 'Case Studies'
         alias: 'documents/case-study'
       ,
-        title: 'News'
-        alias: 'documents/news'
+        title: 'Magazine Exposure'
+        alias: 'documents/magazine'
+        order: 'Date'
       ,
         title: 'Exhibitition Schedule'
         alias: 'documents/expo-schedule'

@@ -37,7 +37,7 @@
 
   &-actions
     width 40vw
-    thin 1.6rem 4.2rem
+    thin 1.2rem 4.2rem
     margin-top 10vh
     flexy column nowrap
     padding-right 6vw
@@ -57,11 +57,15 @@
         width 5rem
         text-align center
 
-      &.signout:before
-        icon "\f29f"
-      &.changepass:before
-        icon "\f296"
-        transform rotate(220deg)
+      &.signout
+        white-space: nowrap
+        &:before
+          icon "\f29f"
+      &.changepass
+        white-space: nowrap
+        &:before
+          icon "\f296"
+          transform rotate(220deg)
 
 
 
