@@ -32,7 +32,7 @@ Signin = Exim.createView
       @showTooltip()
     true
 
-  signIn: (e) ->
+  signIn: (event) ->
     event.preventDefault()
     name = @state.name
     password = @state.password
