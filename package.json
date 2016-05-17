@@ -21,9 +21,13 @@
     "csswring": "^3.0.0",
     "javascript-brunch": ">= 1.0 < 1.8",
     "lost": "^6.3.0",
-    "postcss-brunch": "^0.4.1",
+    "postcss-brunch": "^0.5.0",
+    "postcss-flexbugs-fixes": "^1.1.0",
     "react-brunch": "^1.0.6",
     "stylus-brunch": ">= 1.0 < 1.8",
     "uglify-js-brunch": ">= 1.0 < 1.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.0.3"
   }
 }

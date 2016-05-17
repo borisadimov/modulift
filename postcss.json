@@ -1,0 +1,9 @@
+{
+
+    "use": ["autoprefixer", "postcss-flexbugs-fixes"],
+    "input": "./public/stylesheets/app.css",
+    "output": "./public/stylesheets/app.css",
+    "autoprefixer": {
+        "browsers": "> 1%, last 5 version"
+    }
+}
